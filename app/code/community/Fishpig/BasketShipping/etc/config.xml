@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Fishpig_BasketShipping>
+			<version>1.5.1.1</version>
+		</Fishpig_BasketShipping>
+	</modules>
+	<global>
+		<blocks>
+			<basketshipping>
+				<class>Fishpig_BasketShipping_Block</class>
+			</basketshipping>
+			<checkout>
+				<rewrite>
+					<onepage_shipping>Fishpig_BasketShipping_Block_Checkout_Onepage_Shipping</onepage_shipping>
+				</rewrite>
+			</checkout>
+		</blocks>
+		<helpers>
+			<basketshipping>
+				<class>Fishpig_BasketShipping_Helper</class>
+			</basketshipping>
+		</helpers>
+	</global>
+	<frontend>
+		<layout>
+			<updates>
+				<basketshipping>
+					<file>basket-shipping.xml</file>
+				</basketshipping>
+			</updates>
+		</layout>
+		<events>
+			<controller_action_predispatch>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setupObserversObserver</method>
+					</basketshipping>
+				</observers>
+			</controller_action_predispatch>
+		</events>
+	</frontend>
+	<default>
+		<basketshipping>
+			<settings>
+				<enabled>1</enabled>
+				<show_region>1</show_region>
+			</settings>
+		</basketshipping>
+	</default>
+	<basketshipping>
+		<events>
+			<!-- Core -->
+			<controller_action_predispatch_checkout_cart_index />
+			<controller_action_postdispatch_checkout_cart_add />
+			<controller_action_postdispatch_checkout_cart_delete />
+			<controller_action_postdispatch_checkout_cart_updatePost />
+			<controller_action_postdispatch_checkout_cart_couponPost />
+			<controller_action_postdispatch_checkout_cart_estimatePost />
+			<!-- J2T Ajax Checkout -->
+			<controller_action_postdispatch_j2tajaxcheckout_index_cart />
+			<!-- Excellence Ajax -->
+			<controller_action_postdispatch_ajax_index_add />
+			<!-- Aw_Ajaxcartpro -->
+			<controller_action_postdispatch_ajaxcartpro_ajax_co />
+			<!-- MageWorx_InstantCart -->
+			<controller_action_postdispatch_icart_index_add />
+			<controller_action_postdispatch_icart_index_updateShoppingCart />
+			<controller_action_postdispatch_checkout_icart_add />
+			<controller_action_postdispatch_checkout_icart_updateShoppingCart />
+			<controller_action_postdispatch_icart />
+		</events>
+	</basketshipping>
+</config>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Fishpig_BasketShipping>
+			<active>true</active>
+			<codePool>community</codePool>
+			<depends>
+				<Mage_Sales />
+				<Mage_Shipping />
+			</depends>
+		</Fishpig_BasketShipping>
+	</modules>
+</config>

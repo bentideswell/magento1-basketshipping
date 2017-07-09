@@ -1,0 +1,80 @@
+<?php
+/**
+ *
+ */
+?>
+<?php if ($this->canDisplayCountrySelector()): ?>
+	<tr id="bs:country">
+		<td class="a-right"><?php echo $this->__('Country') ?></td>
+		<td class="a-right">
+			<?php echo $this->getCountryHtmlSelect() ?>
+		</td>
+	</tr>
+	<?php if ($this->canShowRegion()): ?>
+	<tr id="bs:region">
+		<td class="a-right"><?php echo $this->__('State/Province') ?></td>
+		<td class="a-right">
+			<div class="input-box">
+				<select id="region_id" name="region_id" title="<?php echo $this->__('State/Province') ?>" style="display:none;">
+					<option value=""><?php echo $this->__('Please select region, state or province') ?></option>
+				</select>
+				<script type="text/javascript">$('region_id').setAttribute('defaultValue',  "<?php echo $this->getEstimateRegionId() ?>");</script>
+				<input type="text" id="region" name="region" value="<?php echo $this->escapeHtml($this->getEstimateRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="input-text" style="display:none;" />
+			</div>
+		</td>
+	</tr>
+	<?php endif; ?>
+<?php endif; ?>
+<tr id="bs:method">
+	<td class="a-right">
+		<?php if ($this->canShowOptions()): ?>
+			<?php echo $this->__('Shipping') ?>
+		<?php else: ?>
+			<?php foreach($this->getEstimateRates() as $code => $_rates): ?>
+				<?php foreach ($_rates as $_rate): ?>
+					<?php if (!$_rate->getErrorMessage()): ?>
+						<?php if($this->isCurrentRate($_rate)): ?><?php echo $this->escapeHtml($_rate->getMethodTitle()) ?><?php endif ?>
+					<?php endif; ?>
+				<?php endforeach; ?>	
+			<?php endforeach; ?>
+		<?php endif; ?>
+	</td>
+	<td class="a-right">
+		<?php if ($this->canShowOptions()): ?>
+		<form method="post" action="<?php echo $this->getUrl('checkout/cart/estimateUpdatePost') ?>">
+			<select name="estimate_method" id="shipping-method">
+				<?php $requiresOptGroup = count($this->getEstimateRates()) > 1 ?>
+				<?php foreach($this->getEstimateRates() as $code => $_rates): ?>
+					<?php if ($requiresOptGroup): ?>
+						<optgroup label="<?php echo $this->escapeHtml($this->getCarrierName($code)) ?>">
+					<?php endif; ?>
+						<?php foreach ($_rates as $_rate): ?>
+							<?php if (!$_rate->getErrorMessage()): ?>
+								<option value="<?php echo $this->escapeHtml($_rate->getCode()) ?>"<?php if($this->isCurrentRate($_rate)): ?> selected="selected"<?php endif; ?>>
+									<?php echo $this->getMethodOptionLabel($_rate) ?>
+								</option>
+							<?php endif ?>
+						<?php endforeach; ?>
+					<?php if ($requiresOptGroup): ?>
+						</optgroup>
+					<?php endif; ?>
+				<?php endforeach; ?>		
+			</select>
+		</form>
+		<?php else: ?>
+			<?php echo $this->getCurrentShippingPrice() ?>
+		<?php endif; ?>
+	</td>
+</tr>
+<tr id="bs:js" style="display: none;">
+	<td colspan="2">
+		<script type="text/javascript">
+			//<![CDATA[
+			var BasketShipping = new FishPig.BasketShipping.App('<?php echo $this->getUrl('checkout/cart/estimatePost') ?>');
+			<?php if ($this->canShowRegion()): ?>
+			BasketShipping.initRegionUpdater(<?php echo $this->helper('directory')->getRegionJson() ?>);
+			<?php endif; ?>
+			//]]>
+		</script>
+	</td>
+</tr>

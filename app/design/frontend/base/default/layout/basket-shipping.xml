@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<layout>	
+	<basket_shipping_default>
+		<!--<remove name="checkout.cart.shipping" />-->
+		<reference name="head">
+			<action method="addJs"><script>fishpig/basket-shipping.js</script></action>
+		</reference>
+		<reference name="checkout.cart.totals">
+			<block type="basketshipping/total_shipping" name="shipping_total_renderer" />
+		</reference>
+	</basket_shipping_default>
+	<!-- Core -->
+	<checkout_cart_index>
+		<update handle="basket_shipping_default" />
+	</checkout_cart_index>
+	<!--
+		/**
+		 * MageWorx_InstantCart
+		 */
+		 -->
+	<checkout_icart_added>
+		<update handle="basket_shipping_default" />	
+	</checkout_icart_added>
+	<checkout_icart_update_delete>
+		<update handle="basket_shipping_default" />
+	</checkout_icart_update_delete>
+	<checkout_icart_update_checkout_blocks>
+		<update handle="basket_shipping_default" />
+	</checkout_icart_update_checkout_blocks>
+</layout>

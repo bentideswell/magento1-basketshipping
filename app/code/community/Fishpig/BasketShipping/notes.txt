@@ -1,0 +1,56 @@
+##
+# Basket Shipping
+# Author: Ben Tideswell
+# URL: http://fishpig.co.uk/magento/extensions/automatically-set-shipping-method/
+##
+
+02/07/2015 - 1.5.1.1
+- Fix for Idev_OneStepCheckout
+
+15/08/2014 - 1.5.0.4
+- Fixed JS issue when no country option
+
+26/07/2014 - 1.5.0.2
+- Improvement to shipping method collection (legacy)
+
+10/07/2014 - 1.5.0.1
+- Added option to disable region field
+
+07/07/2014 - 1.5.0.0
+- Added region and region_id options and rewritten Javascript
+
+28/06/2014 - 1.4.3.0
+- Fixed issue that stopped country selector being hidden when only 1 allowed country set
+
+29/04/2014 - v1.4.2.1
+- Added backup technique for loading rates when changing country
+
+01/04/2014 - v1.4.2.0
+- Fixed issue with currency conversion
+
+17/03/2014 - v1.4.1.0
+- Added support for MageWorx_InstantCart
+
+27/11/2013 - v1.4.0.2
+- Fixed array_keys error
+
+25/11/2013 - v1.4.0.1
+- BasketShipping now sets the billing address country as well
+
+22/11/2013 - v1.4.0.0
+- Added a cookie option to support GeoIP software
+
+20/11/2013 - v1.3.3.0
+- Fixed compatibility with Webshopapps Premiumrate
+
+24/10/2013 - v1.3.2.0
+- Fixed issue when using Idev_OneStepCheckout
+
+23/10/2013 - v1.3.0.2
+- Fixed system.xml translate module issue
+
+22/10/2013 - v1.3.0.1
+- Added support for Ajax by Excellence
+
+18/10/2013 - v1.3.0.0
+- Updated events system to easily add support for AJAX Cart extensions
