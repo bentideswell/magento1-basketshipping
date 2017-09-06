@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<Fishpig_BasketShipping>
-			<version>1.5.1.1</version>
+			<version>1.5.1.2</version>
 		</Fishpig_BasketShipping>
 	</modules>
 	<global>
@@ -71,6 +71,10 @@
 			<controller_action_postdispatch_checkout_icart_add />
 			<controller_action_postdispatch_checkout_icart_updateShoppingCart />
 			<controller_action_postdispatch_icart />
+			<!-- Webtise_Ajaxcart -->
+			<controller_action_postdispatch_webtise_ajaxcart_index_add />
+			<controller_action_postdispatch_webtise_ajaxcart_index_index />
+			<controller_action_postdispatch_webtise_ajaxcart />
 		</events>
 	</basketshipping>
 </config>

@@ -38,7 +38,7 @@ class Fishpig_BasketShipping_Helper_Data extends Mage_Core_Helper_Abstract
 		if ($_allRates = $shipping->getGroupedAllShippingRates()) {
 			foreach($_allRates as $_rates) {
 				foreach($_rates as $_rate) {
-					$shipping->setShippingMethod($_rate->getCode())->save();
+					$shipping->setShippingMethod($_rate->getCode());//->save();
 
 					$this->_getQuote()->save();
 					$this->_getSession()->resetCheckout();
