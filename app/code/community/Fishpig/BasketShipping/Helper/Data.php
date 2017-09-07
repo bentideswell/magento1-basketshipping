@@ -19,7 +19,7 @@ class Fishpig_BasketShipping_Helper_Data extends Mage_Core_Helper_Abstract
 	{
 		// Fix one Idev_OneStepCheckout
 #		Mage::app()->getStore()->setConfig('onestepcheckout/general/rewrite_checkout_links', false);
-		
+
 		$shipping = $this->_getShippingAddress();
 		$billing = $this->_getBillingAddress();
 
@@ -29,10 +29,10 @@ class Fishpig_BasketShipping_Helper_Data extends Mage_Core_Helper_Abstract
 
 		$billing->setCountryId($shipping->getCountryId())->save();
 
-		if ($shipping->getShippingMethod()) {
+		if (!Mage::app()->getRequest()->getPost('country_id') && $shipping->getShippingMethod()) {
 			return $this;
 		}
-		
+
 		$shipping->setCollectShippingRates(true)->collectShippingRates()->collectTotals();
 
 		if ($_allRates = $shipping->getGroupedAllShippingRates()) {
@@ -73,7 +73,7 @@ class Fishpig_BasketShipping_Helper_Data extends Mage_Core_Helper_Abstract
 			$this->_getQuote()->save();
 			$this->_getSession()->resetCheckout();
 		}
-		
+
 		return $this;
 	}
 
@@ -84,33 +84,7 @@ class Fishpig_BasketShipping_Helper_Data extends Mage_Core_Helper_Abstract
 	 */
 	public function setupObserversObserver(Varien_Event_Observer $observer)
 	{
-		$xml = array();
 		$config = Mage::app()->getConfig();
-		$events = array_keys($config->getNode('basketshipping/events')->asArray());
-		
-		$template = trim("
-			<%s>
-				<observers>
-					<basketshipping>
-						<type>singleton</type>
-						<class>Fishpig_BasketShipping_Helper_Data</class>
-						<method>setShippingObserver</method>
-					</basketshipping>
-				</observers>
-			</%s>
-		");
-
-		foreach($events as $event) {
-			$xml[] = sprintf($template, $event, $event);
-		}
-		
-		$configNew = new Varien_Simplexml_Config();
-
-		$configNew->loadString(
-			sprintf('<config><frontend><events>%s</events></frontend></config>', implode("\n", $xml))
-		);
-		
-		$config->extend($configNew);
 		
 		// Idev_OneStepCheckout fix
 		if ($node = $config->getNode('frontend/events/sales_quote_collect_totals_before/observers/onestepcheckout_set_address_defaults')) {

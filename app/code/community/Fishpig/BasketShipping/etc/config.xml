@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<Fishpig_BasketShipping>
-			<version>1.5.1.2</version>
+			<version>1.6.0.0</version>
 		</Fishpig_BasketShipping>
 	</modules>
 	<global>
@@ -31,15 +31,141 @@
 			</updates>
 		</layout>
 		<events>
-			<controller_action_predispatch>
+			<controller_action_predispatch_checkout_cart_index>
 				<observers>
 					<basketshipping>
 						<type>singleton</type>
 						<class>Fishpig_BasketShipping_Helper_Data</class>
-						<method>setupObserversObserver</method>
+						<method>setShippingObserver</method>
 					</basketshipping>
 				</observers>
-			</controller_action_predispatch>
+			</controller_action_predispatch_checkout_cart_index>
+			<controller_action_postdispatch_checkout_cart_add>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setShippingObserver</method>
+					</basketshipping>
+				</observers>
+			</controller_action_postdispatch_checkout_cart_add>
+			<controller_action_postdispatch_checkout_cart_delete>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setShippingObserver</method>
+					</basketshipping>
+				</observers>
+			</controller_action_postdispatch_checkout_cart_delete>
+			<controller_action_postdispatch_checkout_cart_updatePost>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setShippingObserver</method>
+					</basketshipping>
+				</observers>
+			</controller_action_postdispatch_checkout_cart_updatePost>
+			<controller_action_postdispatch_checkout_cart_couponPost>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setShippingObserver</method>
+					</basketshipping>
+				</observers>
+			</controller_action_postdispatch_checkout_cart_couponPost>
+			<controller_action_postdispatch_checkout_cart_estimatePost>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setShippingObserver</method>
+					</basketshipping>
+				</observers>
+			</controller_action_postdispatch_checkout_cart_estimatePost>
+			<controller_action_postdispatch_j2tajaxcheckout_index_cart>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setShippingObserver</method>
+					</basketshipping>
+				</observers>
+			</controller_action_postdispatch_j2tajaxcheckout_index_cart>
+			<controller_action_postdispatch_ajax_index_add>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setShippingObserver</method>
+					</basketshipping>
+				</observers>
+			</controller_action_postdispatch_ajax_index_add>
+			<controller_action_postdispatch_ajaxcartpro_ajax_co>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setShippingObserver</method>
+					</basketshipping>
+				</observers>
+			</controller_action_postdispatch_ajaxcartpro_ajax_co>
+			<controller_action_postdispatch_icart_index_add>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setShippingObserver</method>
+					</basketshipping>
+				</observers>
+			</controller_action_postdispatch_icart_index_add>
+			<controller_action_postdispatch_icart_index_updateShoppingCart>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setShippingObserver</method>
+					</basketshipping>
+				</observers>
+			</controller_action_postdispatch_icart_index_updateShoppingCart>
+			<controller_action_postdispatch_checkout_icart_add>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setShippingObserver</method>
+					</basketshipping>
+				</observers>
+			</controller_action_postdispatch_checkout_icart_add>
+			<controller_action_postdispatch_checkout_icart_updateShoppingCart>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setShippingObserver</method>
+					</basketshipping>
+				</observers>
+			</controller_action_postdispatch_checkout_icart_updateShoppingCart>
+			<controller_action_postdispatch_icart>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setShippingObserver</method>
+					</basketshipping>
+				</observers>
+			</controller_action_postdispatch_icart>
+			<controller_action_postdispatch_ajax_index_add>
+				<observers>
+					<basketshipping>
+						<type>singleton</type>
+						<class>Fishpig_BasketShipping_Helper_Data</class>
+						<method>setShippingObserver</method>
+					</basketshipping>
+				</observers>				
+			</controller_action_postdispatch_ajax_index_add>
 		</events>
 	</frontend>
 	<default>
@@ -50,31 +176,4 @@
 			</settings>
 		</basketshipping>
 	</default>
-	<basketshipping>
-		<events>
-			<!-- Core -->
-			<controller_action_predispatch_checkout_cart_index />
-			<controller_action_postdispatch_checkout_cart_add />
-			<controller_action_postdispatch_checkout_cart_delete />
-			<controller_action_postdispatch_checkout_cart_updatePost />
-			<controller_action_postdispatch_checkout_cart_couponPost />
-			<controller_action_postdispatch_checkout_cart_estimatePost />
-			<!-- J2T Ajax Checkout -->
-			<controller_action_postdispatch_j2tajaxcheckout_index_cart />
-			<!-- Excellence Ajax -->
-			<controller_action_postdispatch_ajax_index_add />
-			<!-- Aw_Ajaxcartpro -->
-			<controller_action_postdispatch_ajaxcartpro_ajax_co />
-			<!-- MageWorx_InstantCart -->
-			<controller_action_postdispatch_icart_index_add />
-			<controller_action_postdispatch_icart_index_updateShoppingCart />
-			<controller_action_postdispatch_checkout_icart_add />
-			<controller_action_postdispatch_checkout_icart_updateShoppingCart />
-			<controller_action_postdispatch_icart />
-			<!-- Webtise_Ajaxcart -->
-			<controller_action_postdispatch_webtise_ajaxcart_index_add />
-			<controller_action_postdispatch_webtise_ajaxcart_index_index />
-			<controller_action_postdispatch_webtise_ajaxcart />
-		</events>
-	</basketshipping>
 </config>

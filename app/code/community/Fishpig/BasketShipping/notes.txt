@@ -3,7 +3,7 @@
 # URL: https://fishpig.co.uk/magento/extensions/automatically-set-shipping-method/
 ##
 
-06/09/2015 - 1.5.1.2
+06/09/2015 - 1.5.1.3
 - Added support for Webtise_Ajaxcart
 
 02/07/2015 - 1.5.1.1

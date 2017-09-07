@@ -1,5 +1,5 @@
 <_>
-   <form_key>zOm08u9VwE8qHMTV</form_key>
+   <form_key>izUVsJ64dqp6yTq3</form_key>
    <name>Fishpigs_BasketShipping</name>
    <channel>community</channel>
    <version_ids>
@@ -9,7 +9,7 @@
    <description>Automatically set the shipping method for a customer when they go to the shopping cart. Also allows them to change the shipping method on the shopping cart using a dropdown</description>
    <license>FishPig EULA</license>
    <license_uri>http://fishpig.co.uk/license.txt</license_uri>
-   <version>1.5.1.2</version>
+   <version>1.6.0.0</version>
    <stability>stable</stability>
    <notes>For changes, please see http://fishpig.co.uk/magento/extensions/automatically-set-shipping-method/#changelog</notes>
    <authors>
@@ -40,7 +40,7 @@
             <max/>
          </max>
          <files>
-            <files>                  </files>
+            <files>                    </files>
          </files>
       </package>
       <extension>
