@@ -3,4 +3,3 @@ app/design/frontend/base/default/layout/basket-shipping.xml		app/design/frontend
 app/design/frontend/base/default/template/basket-shipping			app/design/frontend/base/default/template/basket-shipping
 app/etc/modules/Fishpig_BasketShipping.xml										app/etc/modules/Fishpig_BasketShipping.xml
 js/fishpig/basket-shipping.js																	js/fishpig/basket-shipping.js
-var/connect/Fishpigs_BasketShipping.xml												var/connect/Fishpigs_BasketShipping.xml
