@@ -166,6 +166,17 @@
 					</basketshipping>
 				</observers>				
 			</controller_action_postdispatch_ajax_index_add>
+			<!--
+			<controller_action_predispatch>
+			   <observers>
+			      <basketshipping>
+			         <type>singleton</type>
+			         <class>Fishpig_BasketShipping_Helper_Data</class>
+			         <method>setupObserversObserver</method>
+			      </basketshipping>
+			   </observers>
+			</controller_action_predispatch>
+			-->
 		</events>
 	</frontend>
 	<default>
