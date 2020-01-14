@@ -1,6 +1,6 @@
 {
-    "name": "bentideswell/magento1-basketshipping",
+    "name": "fishpig/magento1-basketshipping",
     "description": "",
-    "version": "1.6.0.2",
+    "version": "1.6.0.3",
     "type": "magento-module"
 }
